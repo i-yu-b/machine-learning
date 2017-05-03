@@ -11824,6 +11824,7 @@ div#notebook {
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;housing.csv&#39;</span><span class="p">)</span>
 <span class="n">prices</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MEDV&#39;</span><span class="p">]</span>
 <span class="n">features</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;MEDV&#39;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
     
 <span class="c1"># Success</span>
 <span class="k">print</span> <span class="s2">&quot;Boston housing dataset has {} data points with {} variables each.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -11880,23 +11881,23 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[104]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Maximum price of the data</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Mean price of the data</span>
-<span class="n">mean_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Median price of the data</span>
-<span class="n">median_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">median_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Standard deviation of prices of the data</span>
-<span class="n">std_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># Show the calculated statistics</span>
 <span class="k">print</span> <span class="s2">&quot;Statistics for Boston housing dataset:</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -11925,9 +11926,89 @@ Minimum price: $105,000.00
 Maximum price: $1,024,800.00
 Mean price: $454,342.94
 Median price $438,900.00
-Standard deviation of prices: $165,340.28
+Standard deviation of prices: $165,171.13
 </pre>
 </div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[104]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RM</th>
+      <th>LSTAT</th>
+      <th>PTRATIO</th>
+      <th>MEDV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>489.000000</td>
+      <td>489.000000</td>
+      <td>489.000000</td>
+      <td>4.890000e+02</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>6.240288</td>
+      <td>12.939632</td>
+      <td>18.516564</td>
+      <td>4.543429e+05</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.643650</td>
+      <td>7.081990</td>
+      <td>2.111268</td>
+      <td>1.653403e+05</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>3.561000</td>
+      <td>1.980000</td>
+      <td>12.600000</td>
+      <td>1.050000e+05</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>5.880000</td>
+      <td>7.370000</td>
+      <td>17.400000</td>
+      <td>3.507000e+05</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>6.185000</td>
+      <td>11.690000</td>
+      <td>19.100000</td>
+      <td>4.389000e+05</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>6.575000</td>
+      <td>17.120000</td>
+      <td>20.200000</td>
+      <td>5.187000e+05</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>8.398000</td>
+      <td>37.970000</td>
+      <td>22.000000</td>
+      <td>1.024800e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
 </div>
 
 </div>
@@ -12090,7 +12171,7 @@ increase of 'PTRATIO' causes decrease 'MEDV'as neighborhoods with better schools
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> 0.923</p>
+<p><strong>Answer:</strong> Would you consider this model to have successfully captured the variation of the target variable? Why or why not?: R^2 =0.923 meaning that 92.3% variability of observed data has beeen captured by modeled data, which should be considered as a successfully captured the variation of the target variable.</p>
 
 </div>
 </div>
@@ -13762,7 +13843,7 @@ coTA5+OWWGsbhbgUkTLRyE1ERFxHIzcREXEdjdxERMR1FG4iIuI6CjcREXEdhZuIiLiOwk1ERFxH
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Maximum depth = 3 or 4. Model performs well both for training and unseen testing data.</p>
+<p><strong>Answer: </strong> We're looking to have high score for both training (provides low bias) and testing sets (provides low variance), and the difference between training and testing sets should be small (no overfitting). So if we look at Compexity Performance curve we notice that the model performes well for training set in case of maximum depth &gt;=3, if maximum depth &lt; 3 the model is too simple and fails to describe the training data, with the increase the maximum depth the models performes better and better on the trainig set, most likely overfitting the data at high maximum depth values. That's why then we look at Compexity Performance curve for testing set and notice that the model fails to generalize results (scores on testing set significantly lower than on training set) starting with maximum depth &gt;= 5. Therefore, optimal maximum depth = 3 or 4. In this case, the model performs well both for training and unseen testing data.</p>
 
 </div>
 </div>
@@ -13815,8 +13896,8 @@ coTA5+OWWGsbhbgUkTLRyE1ERFxHIzcREXEdjdxERMR1FG4iIuI6CjcREXEdhZuIiLiOwk1ERFxH
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong> Common cross validation technique. The training set is randomly split into k smaller equal sized subsets. Of the k samples, a one subset is used to validate the model, the rest k-1 subsets are used to train the model, this procedure is looped k times, meaning that each of the subsets is used for validation exactly one time. The model performance by k-fold cross-validation is calculated as the average of the values computed in the loop.</p>
-<p>Pros: computationally expensive
-Cons: does not waste too much data and provide reliable estimation of performance</p>
+<p>Cons: computationally expensive
+Pros: does not waste too much data, provide reliable estimation of performance as uses multiple randomly selected testing datasets, allows to perform grid search to optimize different model parameters for generalized case.</p>
 <p>It's important to use cross-validation sets (k-fold, LPO, Shuffle&amp;Split) to obtain well generalized not over-fitting model.</p>
 
 </div>
@@ -13952,7 +14033,8 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Parameter 'max_depth' is 4 for the optimal model.</p>
+<p><strong>Answer: </strong> Parameter 'max_depth' is 4 for the optimal model.
+<em>HOW DOES THIS RESULT COMPARE TO YOUR GUESS IN QUESTION 6?</em> : The obtained value lies within predicted in question 6 range. But just looking at Complexity Performance curve it's hard to predict more precise which maximum depth would be the most optimal, that's why it's important to perform CV.</p>
 
 </div>
 </div>
@@ -14001,7 +14083,7 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[100]:</div>
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Produce a matrix for client data</span>
@@ -14012,6 +14094,9 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 <span class="c1"># Show predictions</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">price</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">client_data</span><span class="p">)):</span>
     <span class="k">print</span> <span class="s2">&quot;Predicted selling price for Client {}&#39;s home: ${:,.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">price</span><span class="p">)</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;prices&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prices</span>
+<span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -14033,6 +14118,95 @@ Predicted selling price for Client 3&#39;s home: $896,962.50
 </div>
 </div>
 
+<div class="output_area">
+<div class="prompt output_prompt">Out[107]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RM</th>
+      <th>LSTAT</th>
+      <th>PTRATIO</th>
+      <th>MEDV</th>
+      <th>prices</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>489.000000</td>
+      <td>489.000000</td>
+      <td>489.000000</td>
+      <td>4.890000e+02</td>
+      <td>4.890000e+02</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>6.240288</td>
+      <td>12.939632</td>
+      <td>18.516564</td>
+      <td>4.543429e+05</td>
+      <td>4.543429e+05</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.643650</td>
+      <td>7.081990</td>
+      <td>2.111268</td>
+      <td>1.653403e+05</td>
+      <td>1.653403e+05</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>3.561000</td>
+      <td>1.980000</td>
+      <td>12.600000</td>
+      <td>1.050000e+05</td>
+      <td>1.050000e+05</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>5.880000</td>
+      <td>7.370000</td>
+      <td>17.400000</td>
+      <td>3.507000e+05</td>
+      <td>3.507000e+05</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>6.185000</td>
+      <td>11.690000</td>
+      <td>19.100000</td>
+      <td>4.389000e+05</td>
+      <td>4.389000e+05</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>6.575000</td>
+      <td>17.120000</td>
+      <td>20.200000</td>
+      <td>5.187000e+05</td>
+      <td>5.187000e+05</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>8.398000</td>
+      <td>37.970000</td>
+      <td>22.000000</td>
+      <td>1.024800e+06</td>
+      <td>1.024800e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -14042,9 +14216,9 @@ Predicted selling price for Client 3&#39;s home: $896,962.50
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Predicted selling price for Client 1's home: $412,950.00
-Predicted selling price for Client 2's home: $234,529.79
-Predicted selling price for Client 3's home: $896,962.50</p>
+<p><strong>Answer: </strong> Predicted selling price for Client 1's home: $412,950.00, which is slightly below the mean value of prices presented in the dataset, which makes sense as number of rooms is slightly below the mean value, the percentage of  "lower class" homeowners in the neighborhood is slightly above the mean value, but the  ratio of students to teachers in primary and secondary schools in the neighborhood is slightly above the mean value.
+Predicted selling price for Client 2's home: $234,529.79, which is on the lower boarder of prices, what correlates well with close to min 'RM', close to max 'PTRATIO', close to max 'LSTAT'. 
+Predicted selling price for Client 3's home: $896,962.50, which is close to max price presented in the dataset, as 'RM' close to max, 'LSTAT' close to min and 'PTRATIO' close to min.</p>
 
 </div>
 </div>
